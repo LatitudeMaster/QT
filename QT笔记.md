@@ -396,20 +396,19 @@ void PaintWidget::paintEvent(QPaintEvent *)
 }
 ```
 # 17.文件系统
-```cpp
-/**
-?QIODevice：所有 I/O 设备类的父类，提供了字节块读写的通用操作以及基本接口；
-?QFileDevice：Qt5新增加的类，提供了有关文件操作的通用实现。
-?QFlie：访问本地文件或者嵌入资源；
-?QTemporaryFile：创建和访问本地文件系统的临时文件；
-?QBuffer：读写QbyteArray, 内存文件；
-?QProcess：运行外部程序，处理进程间通讯；
-?QAbstractSocket：所有套接字类的父类；
-?QTcpSocket：TCP协议网络数据传输；
-?QUdpSocket：传输 UDP 报文；
-?QSslSocket：使用 SSL/TLS 传输数据；
-*/
-```
+| 控件            |   说明                                                    |
+|:-------------   |:-----  |
+| QIODevice       | 所有 I/O 设备类的父类，提供了字节块读写的通用操作以及基本接口；|
+| QFileDevice     | Qt5新增加的类，提供了有关文件操作的通用实现。                 |
+| QFlie           | 访问本地文件或者嵌入资源；                                  |
+| QTemporaryFile  | 创建和访问本地文件系统的临时文件；                           |
+| QBuffer         | 读写QbyteArray, 内存文件；                                 |
+| QProcess        | 运行外部程序，处理进程间通讯；                               |
+| QAbstractSocket | 所有套接字类的父类；                                        |
+| QTcpSocket      |TCP协议网络数据传输；                                        |
+| QUdpSocket      | 传输 UDP 报文；                                            |
+| QSslSocket      | 使用 SSL/TLS 传输数据；                                     |
+
 ```cpp
 //1.QFile的有关操作：
 int main(int argc, char *argv[])
@@ -466,24 +465,23 @@ if (data.open(QFile::WriteOnly | QIODevice::Truncate))
     QTextStream out(&data);
     out << "The answer is " << 42;
 }
-/**
-枚举值	               描述
-?QIODevice::NotOpen		未打开
-?QIODevice::ReadOnly		以只读方式打开
-?QIODevice::WriteOnly		以只写方式打开
-?QIODevice::ReadWrite		以读写方式打开
-?QIODevice::Append			以追加的方式打开，
-新增加的内容将被追加到文件末尾
-?QIODevice::Truncate		以重写的方式打开，在写入新的数据时会将原有
-							数据全部清除，游标设置在文件开头。
-?QIODevice::Text			在读取时，将行结束符转换成 \n；在写入时，
-将行结束符转换成本地格式，例如 Win32 平台
-上是 \r\n
-?QIODevice::Unbuffered	忽略缓存
-*/
-//文本文件读取
-?QTextStream::readLine()	读取一行
-?QTextStream::readAll()读取所有文本
+```
+
+ | 枚举值               |           描述                                                                                 |
+ | -------------       |:-------------                                                                                  |
+ |QIODevice::NotOpen   |	未打开                                                                                  |      
+ |QIODevice::ReadOnly  |	以只读方式打开                                                                           |
+ |QIODevice::WriteOnly |	以只写方式打开                                                                           |
+ |QIODevice::ReadWrite |	以读写方式打开                                                                           |
+ |QIODevice::Append    |	以追加的方式打开，新增加的内容将被追加到文件末尾                                            |
+ |QIODevice::Truncate  |	以重写的方式打开，在写入新的数据时会将原有数据全部清除，游标设置在文件开头。                   |
+ |QIODevice::Text      |	在读取时，将行结束符转换成 \n；在写入时，将行结束符转换成本地格式，例如 Win32 平台上是 \r\n    |
+ |QIODevice::Unbuffered|	忽略缓存                                                                                 |
+
+* 文本文件读取
+| QTextStream::readLine() |	读取一行      |
+| QTextStream::readAll()  |     读取所有文本  |
+```cpp
 //QTextStream的编码转码
 stream.setCodec("UTF-8");
 ```
